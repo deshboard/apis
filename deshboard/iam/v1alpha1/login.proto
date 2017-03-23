@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package deshboard.iam.v1alpha1;
+
+import "google/api/annotations.proto";
+
+option go_package = "iam";
+
+// Login credentials
+message LoginRequest {
+    string user_key = 1;
+    string password = 2;
+}
+
+message LoginResponse {
+    message Token {
+        string token = 1;
+        int64 expires_in = 2;
+    }
+
+    Token access_token = 1;
+    //Token refresh_token = 2;
+}
+
+// Handles user password authentication
+service LoginService {
+    // Authenticates a User using standard username/email and password authentication
+    rpc Login (LoginRequest) returns (LoginResponse){
+        option (google.api.http) = { get: "/v1alpha1/login" };
+    }
+}
