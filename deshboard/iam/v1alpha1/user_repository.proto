@@ -4,20 +4,6 @@ package deshboard.iam.v1alpha1;
 
 option go_package = "iam";
 
-message AuthenticationRequest {
-    string user_key = 1;
-    string password = 2;
-}
-
-message AuthenticationResponse {
-    bool success = 1;
-}
-
-// User Directory serves as an identity provider for users
-service UserDirectory {
-    rpc Authenticate (AuthenticationRequest) returns (AuthenticationResponse);
-}
-
 message NewUser {
     string username = 1;
     string email = 2;
