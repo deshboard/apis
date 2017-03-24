@@ -26,6 +26,6 @@ message LoginResponse {
 service LoginService {
     // Authenticates a User using standard username/email and password authentication
     rpc Login (LoginRequest) returns (LoginResponse){
-        option (google.api.http) = { get: "/v1alpha1/login" };
+        option (google.api.http) = { post: "/v1alpha1/login" body: "*" };
     }
 }
