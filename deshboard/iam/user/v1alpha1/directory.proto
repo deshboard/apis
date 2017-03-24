@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package deshboard.iam.user.v1alpha1;
+
+option go_package = "user";
+
+// User credentials
+message Credentials {
+    // Username or email
+    string user_key = 1;
+
+    // Plain text password
+    string password = 2;
+}
+
+// Authentication response from the User Directory
+message AuthenticationResponse {
+    // The preferred user key by the directory
+    string user_key = 1;
+}
+
+// User Directory serves as an identity provider for users
+service UserDirectory {
+    // Authenticate a user against the directory
+    rpc Authenticate (Credentials) returns (AuthenticationResponse);
+}

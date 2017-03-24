@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package deshboard.iam.v1alpha1;
+package deshboard.iam.user.v1alpha1;
 
-option go_package = "iam";
+option go_package = "user";
 
 message NewUser {
     string username = 1;
@@ -31,7 +31,9 @@ message User {
 
 // User Repository provides write access to User Directories
 service UserRepository {
+    // Create a new user and return it's primary identifier
     rpc Create (NewUser) returns (UserCreated);
 
+    // Return a User based on some search criteria
     rpc Get (GetUser) returns (User);
 }

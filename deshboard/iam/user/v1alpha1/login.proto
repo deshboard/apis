@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package deshboard.iam.v1alpha1;
+package deshboard.iam.user.v1alpha1;
 
 import "google/api/annotations.proto";
 
-option go_package = "iam";
+option go_package = "user";
 
 // Login credentials
 message LoginRequest {
